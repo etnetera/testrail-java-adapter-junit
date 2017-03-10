@@ -26,31 +26,29 @@ public class TRService {
 
     private Run run;
 
-    private boolean enabled = false;
+    private boolean runCreated = false;
 
     /**
-     * 
      * @param suiteId Id can be found in URL in TestRail.
      */
     public void createRunForSuite(int suiteId){
         Run run = new Run().setCreatedOn(new Date())
                 .setSuiteId(suiteId);
         this.run = testRail.runs().add(loader.getProjectid(), run).execute();
-        enabled = true;
+        runCreated = true;
     }
 
     public void createRunForSuite(Run run){
         this.run = testRail.runs().add(loader.getProjectid(), run).execute();
-        enabled = true;
+        runCreated = true;
     }
-
 
     public TestRail getTestRail() {
         return testRail;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public boolean isRunCreated() {
+        return runCreated;
     }
 
     public Run getRun() {

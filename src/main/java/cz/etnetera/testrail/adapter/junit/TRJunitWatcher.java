@@ -57,13 +57,15 @@ public class TRJunitWatcher extends TestWatcher {
 
     @Override
     protected void finished(Description description) {
-        TRTest info = getInfo(description);
-        if (shouldWrite() && info != null && info.enabled()) {
+        TRTest testConfig = getInfo(description);
+        if (trService.isRunCreated() && testAllowsWritting(testConfig)) {
             try {
-                result.setCreatedOn(new Date()).setElapsed(Duration.between(started, LocalDateTime.now()).getSeconds() + "s");
+                result.setCreatedOn(new Date())
+                        .setElapsed(Duration.between(started, LocalDateTime.now()).getSeconds() + "s");
+
                 List<ResultField> customResultFields = testRail.resultFields().list().execute();
                 testRail.results()
-                        .addForCase(trService.getRun().getId(), info.testCaseId(), result, customResultFields)
+                        .addForCase(trService.getRun().getId(), testConfig.testCaseId(), result, customResultFields)
                         .execute();
             } catch (TestRailException e) {
                 System.err.println("Error while writting test result to Testrail: " + e);
@@ -76,8 +78,8 @@ public class TRJunitWatcher extends TestWatcher {
         }
     }
 
-    private boolean shouldWrite() {
-        return trService.isEnabled();
+    private boolean testAllowsWritting(TRTest testConfig) {
+        return testConfig != null && testConfig.enabled();
     }
 
     private TRTest getInfo(Description description) {

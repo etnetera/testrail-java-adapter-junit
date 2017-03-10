@@ -10,7 +10,6 @@ public class TRPropertyLoader {
 
     private static TRPropertyLoader loader;
 
-
     public static TRPropertyLoader getInstance(){
         if (loader == null) loader = new TRPropertyLoader();
         return loader;
