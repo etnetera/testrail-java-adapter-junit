@@ -19,7 +19,7 @@
     </organization>
     <developers>
         <developer>
-            <name>Petr Beneš</name>
+            <name>Petr Benes</name>
             <email>petr.benes@etnetera.cz</email>
             <roles>
                 <role>architect</role>
@@ -42,6 +42,13 @@
         <developerConnection>scm:git:git@github.com:etnetera/testrail-java-adapter-junit.git</developerConnection>
         <tag>HEAD</tag>
     </scm>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <java.version>1.8</java.version>
+        <maven.source.version>1.8</maven.source.version>
+        <maven.target.version>1.8</maven.target.version>
+    </properties>
 
     <dependencies>
         <dependency>
@@ -89,6 +96,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-gpg-plugin</artifactId>
+                <version>1.6</version>
                 <executions>
                     <execution>
                         <id>sign-artifacts</id>
@@ -103,6 +111,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-source-plugin</artifactId>
+                <version>3.0.1</version>
                 <executions>
                     <execution>
                         <id>attach-sources</id>
@@ -116,6 +125,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
+                <version>2.10.4</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
