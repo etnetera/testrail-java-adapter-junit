@@ -1,4 +1,4 @@
-package cz.etnetera.testrailwatcher;
+package cz.etnetera.testrail.adapter.junit;
 
 import com.codepine.api.testrail.TestRail;
 import com.codepine.api.testrail.TestRailException;

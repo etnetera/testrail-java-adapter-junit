@@ -1,4 +1,4 @@
-package cz.etnetera.testrailwatcher;
+package cz.etnetera.testrail.adapter.junit;
 
 import java.io.IOException;
 import java.util.Properties;

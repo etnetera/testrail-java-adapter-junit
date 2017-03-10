@@ -1,4 +1,4 @@
-package cz.etnetera.testrailwatcher;
+package cz.etnetera.testrail.adapter.junit;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;
